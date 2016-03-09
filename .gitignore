@@ -33,3 +33,10 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+# Misc
+.env
+/config/database.yml
+/spec/examples.txt
+dump.rdb
+.byebug_history

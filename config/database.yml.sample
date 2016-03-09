@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  encoding: utf8
+  min_messages: warning
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: XXXX_development
+
+test:
+  <<: *default
+  database: XXXX_test

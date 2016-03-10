@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :albums, dependent: :destroy
+  has_many :photos
+
   before_save :clean_attributes
 
   validates :email, presence: true

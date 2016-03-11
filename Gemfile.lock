@@ -210,6 +210,9 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -268,6 +271,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sidekiq
+  simple_form
   sinatra
   skylight
   spring

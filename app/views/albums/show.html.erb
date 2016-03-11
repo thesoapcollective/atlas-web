@@ -1,0 +1,11 @@
+<%= @album.title %> (<%= @album.photos.count %>)
+
+<br />
+<br />
+<br />
+
+<ul>
+  <% @album.photos.each do |photo| %>
+    <li><%= link_to album_photo_path(@album, photo) do %><%= image_tag photo.image.url(:thumbnail), width: 250 %><% end %></li>
+  <% end %>
+<ul>

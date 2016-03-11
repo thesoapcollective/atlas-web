@@ -18,6 +18,7 @@ gem 'rollbar', '~> 2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sidekiq'
 gem 'sinatra', require: false
+gem 'simple_form'
 gem 'skylight'
 gem 'uglifier', '>= 1.3.0'
 

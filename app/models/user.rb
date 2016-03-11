@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :albums, dependent: :destroy
   has_many :photos
 
-  before_save :clean_attributes
+  before_validation :clean_attributes
 
   validates :email, presence: true
   validates :password, presence: true, length: { minimum: 6 }

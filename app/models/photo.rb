@@ -1,7 +1,23 @@
 class Photo < ActiveRecord::Base
-  before_save :clean_attributes
+  has_attached_file :image,
+    styles: {
+      highdef: 'x1080',
+      thumbnail: '500x500#',
+    },
+    convert_options: {
+      highdef: '-quality 90',
+      thumbnail: '-quality 60 -strip',
+    }
+    # TODO: Add a missing image.
+    # default_url: "/images/:style/missing.png"
 
-  validates :title, length: { minimum: 0, maximum: 255 }
+  validates_attachment_content_type :image,
+    content_type: /\Aimage\/.*\Z/,
+    size: { in: 0..8.megabytes }
+
+  before_validation :clean_attributes
+
+  validates :title, length: { maximum: 255 }
 
   belongs_to :album
   belongs_to :user
@@ -9,13 +25,7 @@ class Photo < ActiveRecord::Base
   private
 
   def clean_attributes
-    if self.description.present?
-      self.description.strip!
-      self.description.downcase!
-    end
-    if self.title.present?
-      self.title.strip!
-      self.title.downcase!
-    end
+    self.description.strip! if self.description.present?
+    self.title.strip! if self.title.present?
   end
 end

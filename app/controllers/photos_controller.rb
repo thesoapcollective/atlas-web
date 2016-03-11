@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  layout 'photo', only: [:show]
+
   before_action :load_album
 
   def create

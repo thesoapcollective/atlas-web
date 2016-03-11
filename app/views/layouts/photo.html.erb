@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= render 'shared/layout_head' %>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      color: #fff;
+      margin: 0px;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <%= yield %>
+  <%= render 'shared/layout_js' %>
+  <%= javascript_include_tag 'photo' %>
+</body>
+</html>

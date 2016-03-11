@@ -5,7 +5,7 @@ class Photo < ActiveRecord::Base
       thumbnail: '500x500#',
     },
     convert_options: {
-      highdef: '-quality 90',
+      highdef: '-quality 95',
       thumbnail: '-quality 60 -strip',
     }
     # TODO: Add a missing image.

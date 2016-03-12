@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
   has_attached_file :image,
     styles: {
       highdef: 'x1080',
-      thumbnail: '500x500#',
+      thumbnail: { processors: [:cropper] },
     },
     convert_options: {
       highdef: '-quality 95',
@@ -21,6 +21,11 @@ class Photo < ActiveRecord::Base
 
   belongs_to :album
   belongs_to :user
+
+  def image_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(Paperclip.io_adapters.for(self.image))
+  end
 
   private
 

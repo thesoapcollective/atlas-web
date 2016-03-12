@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= render 'shared/layout_head' %>
+  <%= render "shared/layout_head" %>
 </head>
 <body>
-  <% if user_signed_in? %>
-    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Sign In', new_user_session_path %>
-  <% end %>
-  <%= yield %>
-  <%= render 'shared/layout_js' %>
+  <div class="page-content">
+    <header class="page-header">
+      <h1><%= link_to "Atlas Immersive", root_url %></h1>
+      <p class="float-r">
+        <% if user_signed_in? %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign In", new_user_session_path %>
+        <% end %>
+      </p>
+    </header>
+    <%= yield %>
+  </div>
+  <%= render "shared/layout_js" %>
 </body>
 </html>

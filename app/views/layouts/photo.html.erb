@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= render 'shared/layout_head' %>
+  <%= render "shared/layout_head" %>
   <style>
     html, body {
       width: 100%;
@@ -16,7 +16,7 @@
 </head>
 <body>
   <%= yield %>
-  <%= render 'shared/layout_js' %>
-  <%= javascript_include_tag 'photo' %>
+  <%= render "shared/layout_js" %>
+  <%= javascript_include_tag "photo" %>
 </body>
 </html>

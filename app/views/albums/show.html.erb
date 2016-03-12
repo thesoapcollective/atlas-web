@@ -1,11 +1,7 @@
-<%= @album.title %> (<%= @album.photos.count %>)
+<p><%= @album.title %> (<%= @album.photos.count %>)</p>
 
-<br />
-<br />
-<br />
-
-<ul>
+<ul class="list-reset album-photos-list">
   <% @album.photos.each do |photo| %>
-    <li><%= link_to album_photo_path(@album, photo) do %><%= image_tag photo.image.url(:thumbnail), width: 250 %><% end %></li>
+    <li class="pos-r"><%= link_to album_photo_path(@album, photo), class: "pos-a" do %><%= image_tag photo.image.url(:thumbnail) %><% end %></li>
   <% end %>
 <ul>
